@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c119ee23-c24e-4db2-a50d-d5f78b485621" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_init_level_multiplier.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_init_level_multiplier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_init_thrs_multiplier.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_init_thrs_multiplier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learned_quantization_annotated.py" beforeDir="false" afterPath="$PROJECT_DIR$/learned_quantization_annotated.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_init_thrs_multiplier.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_init_thrs_multiplier.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +21,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="07fb0a63-7be5-4a0a-a60b-ac68de35ad9d" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -58,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test_init_thrs_multiplier">
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LQ-Nets" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -81,8 +84,54 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test_init_level_multiplier" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\ProgramData\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_init_level_multiplier.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_init_thrs_multiplier" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\ProgramData\Anaconda3\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_init_thrs_multiplier.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_init_thrs_multiplier" />
+        <item itemvalue="Python.test_init_level_multiplier" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -98,7 +147,8 @@
       <option name="presentableId" value="Default" />
       <updated>1569408509777</updated>
       <workItem from="1569408537937" duration="7828000" />
-      <workItem from="1569416466189" duration="201000" />
+      <workItem from="1569416466189" duration="923000" />
+      <workItem from="1569417409896" duration="954000" />
     </task>
     <task id="LOCAL-00001" summary="poking around...1">
       <created>1569415902292</created>
@@ -107,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1569415902292</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="poking around...2">
+      <created>1569416689340</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569416689340</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,9 +185,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="poking around...1" />
-    <option name="LAST_COMMIT_MESSAGE" value="poking around...1" />
+    <MESSAGE value="poking around...2" />
+    <option name="LAST_COMMIT_MESSAGE" value="poking around...2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/LQ_Nets$test_init_thrs_multiplier.coverage" NAME="test_init_thrs_multiplier Coverage Results" MODIFIED="1569417644517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/LQ_Nets$test_init_level_multiplier.coverage" NAME="test_init_level_multiplier Coverage Results" MODIFIED="1569417521834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/LQ_Nets$test.coverage" NAME="test Coverage Results" MODIFIED="1569415166527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

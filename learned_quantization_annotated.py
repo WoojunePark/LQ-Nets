@@ -65,12 +65,12 @@ def QuantizedActiv(x, nbit=2):
             level_multiplier_i[j] = float(level_number % 2)
             level_number = level_number // 2
         init_level_multiplier.append(level_multiplier_i)
-    # range(0, max value w/ n-bits, 1)
+    # => range(0, max value w/ n-bits, 1)
     # ... in reverse bit order = (lsb, ..., msb)
     # e.g. nbit = 3
     # final init_level_multiplier is
     # [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [1.0, 1.0, 0.0], ...
-    # ... [0.0, 0.0, 1.0], [1.0, 0.0, 1.0], [0.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
+    #  [0.0, 0.0, 1.0], [1.0, 0.0, 1.0], [0.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
 
     # initialize threshold multiplier
     init_thrs_multiplier = []
@@ -79,6 +79,15 @@ def QuantizedActiv(x, nbit=2):
         thrs_multiplier_i[i - 1] = 0.5
         thrs_multiplier_i[i] = 0.5
         init_thrs_multiplier.append(thrs_multiplier_i)
+    # <= tl = (q(l) + q(l-1)) / 2
+    # final init_thrs_multiplier is
+    # [[0.5, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.5, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0], ...
+    #  [0.0, 0.0, 0.5, 0.5, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.5, 0.5, 0.0, 0.0, 0.0], ...
+    #  [0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.0], ...
+    #  [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.5, 0.5]]
+    # 8 num_levels, 7 interstices between levels
+    # But in their paper, aren't these supposed to be fixed at 0.5 whole time?
+    # May be they did tried to manipulate these, but found no visible effect on result... or not ;)
 
     with tf.variable_scope('ActivationQuantization'):
         basis = tf.get_variable(

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c119ee23-c24e-4db2-a50d-d5f78b485621" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/learned_quantization.py" beforeDir="false" afterPath="$PROJECT_DIR$/learned_quantization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_init_level_multiplier.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_init_level_multiplier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_init_thrs_multiplier.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_init_thrs_multiplier.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +39,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitHub\LQ-Nets\test" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GitHub\LQ-Nets" />
     </key>
@@ -67,7 +72,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="D:\GitHub\LQ-Nets\test_init_level_multiplier.py" />
+      <option name="SCRIPT_NAME" value="D:\GitHub\LQ-Nets\test\test_init_level_multiplier.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1569408509777</updated>
       <workItem from="1569408537937" duration="7828000" />
+      <workItem from="1569416466189" duration="201000" />
     </task>
     <task id="LOCAL-00001" summary="poking around...1">
       <created>1569415902292</created>
@@ -112,7 +118,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

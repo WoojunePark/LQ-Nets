@@ -7,15 +7,29 @@ from tensorflow.contrib.framework import add_model_variable
 from tensorflow.python.training import moving_averages
 from tensorpack.models import *
 from tensorpack.tfutils.tower import get_current_tower_context
+# what's tensorpack?
+# ...
+# uses concept of 'towers'
 
 MOVING_AVERAGES_FACTOR = 0.9
-
-
+# works like a low pass filter
 EPS = 0.0001
-
-
+# floating-point relative accuracy
+# displays the distance from IN to the next largest single/double precision number
 NORM_PPF_0_75 = 0.6745
+# what's NORM?
+# NORM = normal continuous random variable
+# (x, loc, scale) : x = input, loc = mean, scale = standard deviation
+# probability density function(pdf) for norm = f(x) = exp(-x*x/2)/root(2*pi)
 
+# what's PPF?
+# PPF = Percent Point Function := inverse of CDF - percentiles => "what's CDF?"
+#    CDF = Cumulative Distribution Function
+#    e.g. at standard normal distribution of (loc = 0, scale = 1),
+#    "probability"(OUT) of less than "value"(IN) x = 1.65 is equal to 0.9505...
+#    => stats.norm.cdf(1.65,loc=0,scale=1) = 0.9505
+# PPF = "value"(OUT) when "probability"(IN) less than given value q = 0.95 is equal to 1.6448...
+#    =>stats.norm.ppf(0.95,loc=0,scale=1)
 
 @layer_register()
 def QuantizedActiv(x, nbit=2):
@@ -34,17 +48,30 @@ def QuantizedActiv(x, nbit=2):
     """
     init_basis = [(NORM_PPF_0_75 * 2 / (2 ** nbit - 1)) * (2. ** i) for i in range(nbit)]
     init_basis = tf.constant_initializer(init_basis)
+    # tf.constant_initializer = constant value tensor generator. shape not yet defined.
+
     bit_dims = [nbit, 1]
     num_levels = 2 ** nbit
+    # dimensions and number of quantization levels.
+
     # initialize level multiplier
     init_level_multiplier = []
     for i in range(0, num_levels):
         level_multiplier_i = [0. for j in range(nbit)]
+        # = [0. 0.]
         level_number = i
+        # = 0, 1, 2, 3
         for j in range(nbit):
             level_multiplier_i[j] = float(level_number % 2)
             level_number = level_number // 2
         init_level_multiplier.append(level_multiplier_i)
+    # range(0, max value w/ n-bits, 1)
+    # ... in reverse bit order = (lsb, ..., msb)
+    # e.g. nbit = 3
+    # final init_level_multiplier is
+    # [[0.0, 0.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [1.0, 1.0, 0.0], ...
+    # ... [0.0, 0.0, 1.0], [1.0, 0.0, 1.0], [0.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
+
     # initialize threshold multiplier
     init_thrs_multiplier = []
     for i in range(1, num_levels):
@@ -60,6 +87,7 @@ def QuantizedActiv(x, nbit=2):
             trainable=False)
 
         ctx = get_current_tower_context()  # current tower context
+
         # calculate levels and sort
         level_codes = tf.constant(init_level_multiplier)
         levels = tf.matmul(level_codes, basis)
@@ -68,9 +96,11 @@ def QuantizedActiv(x, nbit=2):
         sort_id = tf.reverse(sort_id, [-1])
         levels = tf.transpose(levels, [1, 0])
         sort_id = tf.transpose(sort_id, [1, 0])
+
         # calculate threshold
         thrs_multiplier = tf.constant(init_thrs_multiplier)
         thrs = tf.matmul(thrs_multiplier, levels)
+
         # calculate output y and its binary code
         y = tf.zeros_like(x)  # output
         reshape_x = tf.reshape(x, [-1])
@@ -82,9 +112,11 @@ def QuantizedActiv(x, nbit=2):
             g = tf.greater(x, thrs[i])
             y = tf.where(g, zero_y + levels[i + 1], y)
             bits_y = tf.where(tf.reshape(g, [-1]), zero_bits_y + level_codes[sort_id[i + 1][0]], bits_y)
+
         # training
         if ctx.is_main_training_tower:
             BT = tf.matrix_transpose(bits_y)
+
             # calculate BTxB
             BTxB = []
             for i in range(nbit):
@@ -94,6 +126,7 @@ def QuantizedActiv(x, nbit=2):
                     BTxB.append(BTxBij)
             BTxB = tf.reshape(tf.stack(values=BTxB), [nbit, nbit])
             BTxB_inv = tf.matrix_inverse(BTxB)
+
             # calculate BTxX
             BTxX = []
             for i in range(nbit):
@@ -145,6 +178,7 @@ def QuantizedWeight(name, x, n, nbit=2):
     bit_dims = [nbit, num_filters]
     num_levels = 2 ** nbit
     delta = EPS
+
     # initialize level multiplier
     init_level_multiplier = []
     for i in range(num_levels):

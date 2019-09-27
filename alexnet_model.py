@@ -10,10 +10,13 @@ from learned_quantization import Conv2DQuant, getBNReLUQuant, getfcBNReLU, getfc
 
 
 def alexnet_backbone(image, qw=1):
-    with argscope(Conv2DQuant, nl=tf.identity, use_bias=False,
+    with argscope(Conv2DQuant,
+                  nl=tf.identity,
+                  use_bias=False,
                   W_init=tf.random_normal_initializer(stddev=0.01),
                   data_format=get_arg_scope()['Conv2D']['data_format'],
                   nbit=qw):
+
         logits = (LinearWrap(image)
                   .Conv2DQuant('conv1', 96, 11, stride=4, is_quant=False, padding='VALID')
                   .MaxPooling('pool1', shape=3, stride=2, padding='VALID')

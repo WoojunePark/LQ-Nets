@@ -31,6 +31,7 @@ NORM_PPF_0_75 = 0.6745
 # PPF = "value"(OUT) when "probability"(IN) less than given value q = 0.95 is equal to 1.6448...
 #    =>stats.norm.ppf(0.95,loc=0,scale=1)
 
+
 @layer_register()
 def QuantizedActiv(x, nbit=2):
     """

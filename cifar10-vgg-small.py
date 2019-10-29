@@ -152,4 +152,5 @@ if __name__ == '__main__':
         nr_tower=max(get_nr_gpu(), 1),
         session_init=SaverRestore(args.load) if args.load else None
     )
-    SyncMultiGPUTrainerParameterServer(config).train()
+    # SyncMultiGPUTrainerParameterServer(config).train()
+    launch_train_with_config(config, SyncMultiGPUTrainerParameterServer(args.gpu, ps_device='gpu'))

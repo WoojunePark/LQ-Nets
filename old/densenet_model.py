@@ -4,12 +4,11 @@
 
 import math
 
-import tensorflow as tf
 from tensorflow.contrib.layers import variance_scaling_initializer
 from tensorpack.models import *
 from tensorpack.tfutils.argscope import argscope, get_arg_scope
 
-from learned_quantization import Conv2DQuant, QuantizedActiv
+from old.learned_quantization import Conv2DQuant, QuantizedActiv
 
 GROWTH_RATE = 32
 REDUCTION = 0.5

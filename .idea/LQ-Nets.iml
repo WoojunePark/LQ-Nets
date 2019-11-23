@@ -5,6 +5,9 @@
     <orderEntry type="jdk" jdkName="Remote Python 3.7.4 (sftp://wjpark@163.239.97.130:22/home/wjpark/miniconda3/envs/tf114_cuda100/bin/python3.7)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyDocumentationSettings">
+    <option name="renderExternalDocumentation" value="true" />
+  </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="pytest" />
     <option name="PROJECT_TEST_RUNNER" value="pytest" />

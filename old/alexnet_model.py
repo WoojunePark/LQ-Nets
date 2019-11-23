@@ -2,11 +2,10 @@
 # -*- coding: utf-8 -*-
 # File: alexnet_model.py
 
-import tensorflow as tf
 from tensorpack.models import *
 from tensorpack.tfutils.argscope import argscope, get_arg_scope
 
-from learned_quantization import Conv2DQuant, getBNReLUQuant, getfcBNReLU, getfcBNReLUQuant
+from old.learned_quantization import Conv2DQuant, getBNReLUQuant, getfcBNReLU, getfcBNReLUQuant
 
 
 def alexnet_backbone(image, qw=1):

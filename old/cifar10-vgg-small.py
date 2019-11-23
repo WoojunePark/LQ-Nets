@@ -3,17 +3,14 @@
 # File: cifar10-vgg-small.py
 
 import argparse
-import os
 
-import tensorflow as tf
 from tensorflow.contrib.layers import variance_scaling_initializer
 from tensorpack import *
 from tensorpack.dataflow import dataset
 from tensorpack.tfutils.summary import *
-from tensorpack.tfutils.symbolic_functions import *
 from tensorpack.utils.gpu import get_num_gpu
 
-from learned_quantization import *
+from old.learned_quantization import *
 
 BATCH_SIZE = 100
 NUM_UNITS = None
@@ -21,7 +18,6 @@ WEIGHT_DECAY = 5e-4
 
 
 class Model(ModelDesc):
-
     def __init__(self, qw=1, qa=0):
         super(Model, self).__init__()
         self.qw = qw

@@ -2,12 +2,11 @@
 # -*- coding: utf-8 -*-
 # File: vgg_model.py
 
-import tensorflow as tf
 from tensorflow.contrib.layers import variance_scaling_initializer
 from tensorpack.models import *
 from tensorpack.tfutils.argscope import argscope, get_arg_scope
 
-from learned_quantization import Conv2DQuant, getBNReLUQuant, getfcBNReLUQuant, getfcBNReLU
+from old.learned_quantization import Conv2DQuant, getBNReLUQuant, getfcBNReLUQuant, getfcBNReLU
 
 
 def vgg_backbone(image, qw=1):

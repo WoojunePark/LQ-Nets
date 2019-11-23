@@ -2,12 +2,11 @@
 # -*- coding: utf-8 -*-
 # File: googlenet_model.py
 
-import tensorflow as tf
 from tensorflow.contrib.layers import variance_scaling_initializer
 from tensorpack.models import *
 from tensorpack.tfutils.argscope import argscope, get_arg_scope
 
-from learned_quantization import Conv2DQuant, getBNReLUQuant, QuantizedActiv
+from old.learned_quantization import Conv2DQuant, getBNReLUQuant, QuantizedActiv
 
 
 def inception_block(l, name, ch_1x1, ch_3x3, ch_5x5, is_last_block=False, is_last=False):

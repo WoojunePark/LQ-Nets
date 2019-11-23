@@ -3,7 +3,6 @@
 # File: imagenet.py
 
 import argparse
-import os
 
 from tensorpack import logger, QueueInput
 from tensorpack.callbacks import *
@@ -13,18 +12,18 @@ from tensorpack.tfutils import argscope, get_model_loader
 from tensorpack.train import AutoResumeTrainConfig, SyncMultiGPUTrainerReplicated, launch_train_with_config
 from tensorpack.utils.gpu import get_nr_gpu
 
-import imagenet_utils
-from alexnet_model import alexnet_backbone
-from densenet_model import densenet_backbone
-from googlenet_model import googlenet_backbone
-from imagenet_utils import (
+from old import imagenet_utils
+from old.alexnet_model import alexnet_backbone
+from old.densenet_model import densenet_backbone
+from old.googlenet_model import googlenet_backbone
+from old.imagenet_utils import (
     fbresnet_augmentor, normal_augmentor, get_imagenet_dataflow, ImageNetModel,
     eval_on_ILSVRC12)
-from learned_quantization import QuantizedActiv
-from resnet_model import (
+from old.learned_quantization import QuantizedActiv
+from old.resnet_model import (
     preresnet_group, preresnet_group_typeA, preresnet_basicblock, preresnet_bottleneck,
     resnet_group, resnet_basicblock, resnet_bottleneck, resnet_backbone)
-from vgg_model import vgg_backbone
+from old.vgg_model import vgg_backbone
 
 TOTAL_BATCH_SIZE = 256
 

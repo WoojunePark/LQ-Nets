@@ -436,3 +436,34 @@ def getfcBNReLU(x, name=None):
     x = BatchNorm('bn', x, data_format='NHWC', use_scale=False, use_bias=False)
     x = tf.nn.relu(x, name=name)
     return x
+
+
+"""
+1) dir -> load images
+def load_dataset(data_dir, img_size):
+    ...
+    test_set = imgs[:test_size]
+    train_set = imgs[test_size:][:200]
+    return
+
+    
+2) loaded images -> 
+def get_image(imgtuple,size):
+    imgs = test_set
+    get_image(imgs[0],original_size)
+    x = [scipy.misc.imresize(get_image(q,original_size),(shrunk_size,shrunk_size)) for q in imgs]
+    y = [get_image(q,original_size) for q in imgs]
+    return img
+
+def get_test_set(original_size,shrunk_size):
+    ...
+    return x,y
+
+ 
+4) Batch
+def get_batch(batch_size,original_size,shrunk_size):
+    ...
+    return 
+        x(input set of shape [-1,shrunk_size,shrunk_size,channels]), 
+        y(target set of shape [-1,original_size,original_size,channels])
+"""
